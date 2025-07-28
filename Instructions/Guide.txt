@@ -1,0 +1,52 @@
+===============================
+📘 BDD Automation Framework Guide
+===============================
+
+📁 Folder Structure:
+---------------------
+- src/test/java/
+    - stepDefinitions/
+    - runners/
+    - features/
+    - utils/                → Contains reusable data readers and helpers
+
+- src/test/resources/
+    - config/               → YAML / JSON / Properties files
+    - testdata/             → Excel files
+
+🧠 Data Reader Usage:
+---------------------
+Use the DataReaderFactory class to fetch test data from:
+    ✅ YAML
+    ✅ JSON
+    ✅ Properties
+    ✅ Excel (SQL style using Fillo)
+    ✅ Excel (Matrix style using Apache POI)
+
+📌 Sample Usage:
+---------------------
+String value = DataReaderFactory.getValue(
+    "yaml",             // Type: yaml | json | properties | excel_sql | excel_matrix
+    "config.userData",  // Folder.file (exclude file extension)
+    "userDetails",      // Section / SheetName
+    "TC_01",            // Row key or object key
+    "username"          // Column key or sub-key
+);
+
+📝 Notes:
+---------------------
+- Do not include `.yaml`, `.json`, `.xlsx` or `.properties` in the file name.
+- Files can be placed anywhere inside `resources/` folder.
+- Ensure file names are unique across folders to avoid confusion.
+- Default key column for ExcelSQLQueryUtils is set as `TestCaseID`.
+  You can customize it in the method if needed.
+
+🧪 For Running Tests:
+---------------------
+- Use Cucumber runner classes in `runners/` folder.
+- Feature files should be under `features/`.
+- Step definitions must be in `stepDefinitions/`.
+
+🔐 Credentials or sensitive data should go inside config YAML/JSON, not hardcoded in scripts.
+
+Happy Testing! 🚀
