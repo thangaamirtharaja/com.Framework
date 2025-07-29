@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class JsonDataWriter {
-    public static void writeValue(String section, String key, String subKey, String value, String folderDotFile) {
+    public static void writeValue(String section, String key, String subKey, String folderDotFile, String value) {
         try {
             String filePath = "src/test/resources/" + folderDotFile.replace(".", "/") + ".json";
             ObjectMapper mapper = new ObjectMapper();

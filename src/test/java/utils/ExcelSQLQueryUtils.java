@@ -5,9 +5,9 @@ import com.codoid.products.fillo.*;
 
 public class ExcelSQLQueryUtils {
 
-	public static String getValue(String fileDotPath, String sheetName, String rowKeyColumn, String rowKeyValue,
-			String targetColumn) {
-		String filePath = "src/test/resources/" + fileDotPath.replace(".", "/") + ".xlsx";
+	public static String getValue( String sheetName, String rowKeyColumn, String rowKeyValue,
+			String targetColumn,String fileDotPath) {
+		String filePath =fileDotPath.replace(".", "/") + ".xlsx";
 
 		try {
 			Fillo fillo = new Fillo();

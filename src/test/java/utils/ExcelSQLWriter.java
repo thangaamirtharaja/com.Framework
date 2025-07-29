@@ -4,9 +4,9 @@ import com.codoid.products.exception.FilloException;
 import com.codoid.products.fillo.*;
 
 public class ExcelSQLWriter {
-    public static void writeValue(String folderDotFile, String sheetName, String rowKeyColumn, String rowKeyValue, String targetColumn, String value) {
+    public static void writeValue( String sheetName, String rowKeyColumn, String rowKeyValue, String targetColumn,String folderDotFile, String value) {
         try {
-            String filePath = "src/test/resources/" + folderDotFile.replace(".", "/") + ".xlsx";
+            String filePath =folderDotFile.replace(".", "/") + ".xlsx";
             Fillo fillo = new Fillo();
             Connection connection = fillo.getConnection(filePath);
 

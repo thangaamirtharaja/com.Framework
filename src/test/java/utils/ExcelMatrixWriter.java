@@ -7,7 +7,7 @@ import java.io.*;
 
 public class ExcelMatrixWriter {
     public static void writeValue(String folderDotFile, String sheetName, String rowKey, String colHeader, String value) {
-        String filePath = "src/test/resources/" + folderDotFile.replace(".", "/") + ".xlsx";
+        String filePath = folderDotFile.replace(".", "/") + ".xlsx";
         try (FileInputStream fis = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fis)) {
 

@@ -6,8 +6,8 @@ import org.apache.poi.ss.usermodel.*;
 
 public class ExcelMatrixReader {
 
-	public static String getValue(String fileDotPath, String sheetName, String rowKey, String colHeader) {
-		String filePath = "src/test/resources/" + fileDotPath.replace(".", "/") + ".xlsx";
+	public static String getValue( String sheetName, String rowKey, String colHeader,String fileDotPath) {
+		String filePath =  fileDotPath.replace(".", "/") + ".xlsx";
 
 		try (FileInputStream fis = new FileInputStream(new File(filePath))) {
 			Workbook workbook = WorkbookFactory.create(fis);

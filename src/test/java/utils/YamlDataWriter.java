@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.Map;
 
 public class YamlDataWriter {
-    public static void writeValue(String section, String key, String subKey, String value, String folderDotFile) {
+    public static void writeValue(String section, String key, String subKey,  String folderDotFile, String value) {
         try {
             String filePath = "src/test/resources/" + folderDotFile.replace(".", "/") + ".yaml";
             Yaml yaml = new Yaml();

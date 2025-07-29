@@ -6,6 +6,6 @@ public class ConfigReader {
 	private static String path = "properties.config";
 
 	public static String get(String key) {
-		return PropertiesReader.getValue(key, path);
+		return PropertiesReader.getValue(null,key,null, path);
 	}
 }
