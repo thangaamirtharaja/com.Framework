@@ -1,12 +1,14 @@
-package utils;
+package utils.Data_Read_Write;
+
+import utils.Interface.GetValue;
 
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesReader {
+public class PropertiesReader implements GetValue {
 
 
-    public static  String getValue(String section, String key, String subKey, String fileDotPath) {
+    public String getValue(String section, String key, String subKey, String fileDotPath) {
         // Only `key` is used for .properties, others ignored
         String filePath = fileDotPath.replace(".", "/") + ".properties";
 

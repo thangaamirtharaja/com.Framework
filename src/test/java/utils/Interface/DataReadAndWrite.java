@@ -1,4 +1,4 @@
-package utils;
+package utils.Interface;
 
 public interface DataReadAndWrite {
     String readvalue(String type, Object... args);

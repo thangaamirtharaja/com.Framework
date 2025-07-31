@@ -1,12 +1,13 @@
-package utils;
+package utils.Data_Read_Write;
 
 import java.io.InputStream;
 import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
+import utils.Interface.GetValue;
 
-public class YamlDataReader {
+public class YamlDataReader implements GetValue {
 
-	public static String getValue(String section, String key, String subKey, String fileDotPath) {
+	public String getValue(String section, String key, String subKey, String fileDotPath) {
 		String filePath = fileDotPath.replace(".", "/") + ".yaml";
 
 		try (InputStream inputStream = YamlDataReader.class.getClassLoader().getResourceAsStream(filePath)) {
@@ -28,3 +29,4 @@ public class YamlDataReader {
 		}
 	}
 }
+

@@ -1,12 +1,14 @@
-package utils;
+package utils.Data_Read_Write;
+
+import utils.Interface.WriteValue;
 
 import java.io.*;
 import java.util.Properties;
 
-public class PropertiesWriter {
+public class PropertiesWriter implements WriteValue {
 
 
-    public static void writeValue(String section, String key, String subKey, String fileDotPath, String value) {
+    public void writeValue(String section, String key, String subKey, String fileDotPath, String value) {
         // Only `key` and `fileDotPath` are relevant for .properties
         try {
             String filePath = "src/test/resources/" + fileDotPath.replace(".", "/") + ".properties";

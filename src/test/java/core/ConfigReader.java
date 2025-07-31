@@ -1,11 +1,11 @@
 package core;
 
-import utils.PropertiesReader;
+import utils.Interface.GetValue;
 
-public class ConfigReader {
+public abstract class ConfigReader implements GetValue {
 	private static String path = "properties.config";
 
 	public static String get(String key) {
-		return PropertiesReader.getValue(null,key,null, path);
+		return propertiesreader.getValue(null,key,null, path);
 	}
 }

@@ -1,12 +1,12 @@
-package utils;
+package utils.Data_Read_Write;
 
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import utils.Interface.WriteValue;
 
 import java.io.*;
 
-public class ExcelMatrixWriter {
-    public static void writeValue(String folderDotFile, String sheetName, String rowKey, String colHeader, String value) {
+public class ExcelMatrixWriter implements WriteValue {
+    public void writeValue(String folderDotFile, String sheetName, String rowKey, String colHeader, String value) {
         String filePath = folderDotFile.replace(".", "/") + ".xlsx";
         try (FileInputStream fis = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fis)) {

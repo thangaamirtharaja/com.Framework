@@ -1,12 +1,13 @@
-package utils;
+package utils.Data_Read_Write;
 
 import java.io.File;
 import java.io.FileInputStream;
 import org.apache.poi.ss.usermodel.*;
+import utils.Interface.GetValue;
 
-public class ExcelMatrixReader {
+public class ExcelMatrixReader implements GetValue {
 
-	public static String getValue( String sheetName, String rowKey, String colHeader,String fileDotPath) {
+	public String getValue( String sheetName, String rowKey, String colHeader,String fileDotPath) {
 		String filePath =  fileDotPath.replace(".", "/") + ".xlsx";
 
 		try (FileInputStream fis = new FileInputStream(new File(filePath))) {

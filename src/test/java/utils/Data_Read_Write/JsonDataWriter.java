@@ -1,12 +1,14 @@
-package utils;
+package utils.Data_Read_Write;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import utils.Interface.WriteValue;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-public class JsonDataWriter {
-    public static void writeValue(String section, String key, String subKey, String folderDotFile, String value) {
+public class JsonDataWriter implements WriteValue {
+    public void writeValue(String section, String key, String subKey, String folderDotFile, String value) {
         try {
             String filePath = "src/test/resources/" + folderDotFile.replace(".", "/") + ".json";
             ObjectMapper mapper = new ObjectMapper();

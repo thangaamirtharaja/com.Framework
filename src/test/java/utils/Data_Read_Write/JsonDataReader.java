@@ -1,12 +1,13 @@
-package utils;
+package utils.Data_Read_Write;
 
 import java.io.InputStream;
 import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import utils.Interface.GetValue;
 
-public class JsonDataReader {
-
-	public static String getValue(String section, String key, String subKey, String fileDotPath) {
+public class JsonDataReader implements GetValue {
+	@Override
+	public String getValue(String section, String key, String subKey, String fileDotPath) {
 		String filePath = fileDotPath.replace(".", "/") + ".json";
 
 		try (InputStream inputStream = JsonDataReader.class.getClassLoader().getResourceAsStream(filePath)) {

@@ -1,11 +1,13 @@
-package utils;
+package utils.Data_Read_Write;
 
 import org.yaml.snakeyaml.Yaml;
+import utils.Interface.WriteValue;
+
 import java.io.*;
 import java.util.Map;
 
-public class YamlDataWriter {
-    public static void writeValue(String section, String key, String subKey,  String folderDotFile, String value) {
+public class YamlDataWriter implements WriteValue {
+    public void writeValue(String section, String key, String subKey,  String folderDotFile, String value) {
         try {
             String filePath = "src/test/resources/" + folderDotFile.replace(".", "/") + ".yaml";
             Yaml yaml = new Yaml();
