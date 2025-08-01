@@ -1,7 +1,6 @@
-package core;
+package utils.Before_and_after_config;
 
 import io.cucumber.java.*;
-import utils.Before_and_after_config.ScreenshotManager;
 import utils.Reports.ExtentReportManager;
 
 import java.io.File;
@@ -37,7 +36,6 @@ public class Hooks {
     @AfterStep
     public void afterEachStep(Scenario scenario) throws IOException {
         String stepText = scenario.getStatus().name();
-
         if (Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) {
             String screenshotPath;
             if (scenario.isFailed()) {

@@ -1,4 +1,4 @@
-package core;
+package utils.Before_and_after_config;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

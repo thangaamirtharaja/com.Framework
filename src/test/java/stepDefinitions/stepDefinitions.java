@@ -3,10 +3,9 @@ package stepDefinitions;
 import java.time.Duration;
 
 
-import core.ConfigReader;
-import core.DriverManager;
+import utils.Before_and_after_config.ConfigReader;
+import utils.Before_and_after_config.DriverManager;
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.By;
 import utils.Common_config.WaitForPageLoad;
 
 
