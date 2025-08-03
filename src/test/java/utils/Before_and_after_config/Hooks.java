@@ -7,21 +7,48 @@ import java.io.File;
 import java.io.IOException;
 
 public class Hooks {
+    private static String currentFeature = "";
+    static ExtentReportManager extentreportmanager = new ExtentReportManager();
     @BeforeAll
     public static void beforeAll() {
-        ExtentReportManager.initReports();
+        extentreportmanager.initReports();
     }
 
     @Before
     public void setUp(Scenario scenario) {
-        ExtentReportManager.createFeature(scenario.getUri().toString());
-        ExtentReportManager.createScenario(scenario.getName());
+        String featureName = getFeatureName(scenario.getUri().toString());
+        if (!featureName.equals(currentFeature)) {
+            extentreportmanager.createFeature(featureName);
+            currentFeature = featureName;
+        }
+        extentreportmanager.createScenario(scenario.getName());
         DriverManager.getDriver().manage().window().maximize();
+
         if (Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) {
             ScreenshotManager.initScenarioFolder(scenario.getName());
         }
     }
 
+
+
+    @AfterStep
+    public void afterEachStep(Scenario scenario) throws IOException {
+        if (!Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) return;
+
+
+        String screenshotPath;
+        if (scenario.isFailed()) {
+            screenshotPath = ScreenshotManager.FailScreenshot(DriverManager.getDriver());
+            extentreportmanager.logStep("Step Failed", screenshotPath);
+        } else {
+            screenshotPath = ScreenshotManager.takeStepScreenshot(DriverManager.getDriver());
+
+            extentreportmanager.logStep("Step Passed", screenshotPath);
+        }
+
+        byte[] imageBytes = new File(screenshotPath).toPath().toUri().toURL().openStream().readAllBytes();
+        scenario.attach(imageBytes, "image/png", "Step Screenshot");
+    }
     @After
     public void tearDown() {
 
@@ -32,26 +59,12 @@ public class Hooks {
             DriverManager.quitDriver();
         }
     }
-
-    @AfterStep
-    public void afterEachStep(Scenario scenario) throws IOException {
-        String stepText = scenario.getStatus().name();
-        if (Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) {
-            String screenshotPath;
-            if (scenario.isFailed()) {
-                screenshotPath = ScreenshotManager.FailScreenshot(DriverManager.getDriver());
-                ExtentReportManager.logStepFailure(stepText, "Step failed.");
-                ExtentReportManager.logScreenshot(screenshotPath, "Failure Screenshot");
-            } else {
-                screenshotPath = ScreenshotManager.takeStepScreenshot(DriverManager.getDriver());
-                ExtentReportManager.logStep("Step passed");
-                ExtentReportManager.logScreenshot(screenshotPath,"Step passed" );
-            }
-            scenario.attach(new File(screenshotPath).toPath().toUri().toURL().openStream().readAllBytes(), "image/png", "Step Screenshot");
-        }
-    }
     @AfterAll
     public static void afterAll() {
-        ExtentReportManager.flushReports();
+        extentreportmanager.flushReports();
+    }
+    private String getFeatureName(String uri) {
+        String[] parts = uri.replace("\\", "/").split("/");
+        return parts[parts.length - 1].replace(".feature", "");
     }
 }

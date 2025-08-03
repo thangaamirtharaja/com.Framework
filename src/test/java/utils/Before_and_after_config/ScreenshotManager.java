@@ -18,8 +18,26 @@ public class ScreenshotManager {
     public static void initScenarioFolder(String scenarioName) {
         String timestamp = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         scenarioFolderPath = "screenshots/" + scenarioName.replaceAll("\\s+", "_") + "_" + timestamp;
-        new File(scenarioFolderPath).mkdirs(); // create folder
+        File folder = new File(scenarioFolderPath);
+        if (folder.exists()) {
+            deleteDirectory(folder);
+        }
+        if (!folder.mkdirs()) {
+            System.err.println("Failed to create scenario folder: " + scenarioFolderPath);
+        }
         stepCount = 1;
+    }
+
+    private static void deleteDirectory(File file) {
+        if (file.isDirectory()) {
+            File[] contents = file.listFiles();
+            if (contents != null) {
+                for (File f : contents) {
+                    deleteDirectory(f);
+                }
+            }
+        }
+        file.delete();
     }
 
     public static String takeStepScreenshot(WebDriver driver) {
