@@ -1,68 +1,104 @@
 package utils.Before_and_after_config;
 
 import io.cucumber.java.*;
+import org.openqa.selenium.WebDriver;
+import utils.Reports.ExcelEvidenceGenerator;
 import utils.Reports.ExtentReportManager;
+import utils.Reports.WordEvidenceGenerator;
 
-import java.io.File;
+
 import java.io.IOException;
 
-public class Hooks {
+public class Hooks  {
+    private WebDriver driver = DriverManager.getDriver();
     private static String currentFeature = "";
-    static ExtentReportManager extentreportmanager = new ExtentReportManager();
+
     @BeforeAll
     public static void beforeAll() {
-        extentreportmanager.initReports();
+
+        ExtentReportManager.getInstance().initReports();
+
     }
 
     @Before
-    public void setUp(Scenario scenario) {
+    public void setUp(Scenario scenario) throws IOException {
         String featureName = getFeatureName(scenario.getUri().toString());
         if (!featureName.equals(currentFeature)) {
-            extentreportmanager.createFeature(featureName);
             currentFeature = featureName;
+            ExtentReportManager.getInstance().createFeature(featureName);
         }
-        extentreportmanager.createScenario(scenario.getName());
-        DriverManager.getDriver().manage().window().maximize();
+
 
         if (Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) {
+            if (Boolean.parseBoolean(ConfigReader.get("ExcelTestevidance"))) {
+                ExcelEvidenceGenerator.startDocument(scenario.getName());
+            }
+            if (Boolean.parseBoolean(ConfigReader.get("WordTestevidance"))) {
+                WordEvidenceGenerator.startDocument(scenario.getName());
+            }
             ScreenshotManager.initScenarioFolder(scenario.getName());
         }
+        ExtentReportManager.getInstance().createScenario(scenario.getName());
     }
-
 
 
     @AfterStep
     public void afterEachStep(Scenario scenario) throws IOException {
         if (!Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) return;
-
-
         String screenshotPath;
         if (scenario.isFailed()) {
-            screenshotPath = ScreenshotManager.FailScreenshot(DriverManager.getDriver());
-            extentreportmanager.logStep("Step Failed", screenshotPath);
+            screenshotPath = ScreenshotManager.FailScreenshot(driver);
+            ExtentReportManager.getInstance().logStepFailureWithScreenshot("Step Failed", "See screenshot", driver);
         } else {
-            screenshotPath = ScreenshotManager.takeStepScreenshot(DriverManager.getDriver());
+            screenshotPath = ScreenshotManager.takeStepScreenshot(driver);
+            ExtentReportManager.getInstance().logStepWithScreenshot("Step Passed", driver);
+        }
+        String status = scenario.isFailed() ? "FAILED" : "PASSED";
 
-            extentreportmanager.logStep("Step Passed", screenshotPath);
+        String stepText = StepContext.get();
+
+        if (Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) {
+            if (Boolean.parseBoolean(ConfigReader.get("ExcelTestevidance"))) {
+                ExcelEvidenceGenerator.addStep(stepText, status, screenshotPath);
+            }
+        }
+        if (Boolean.parseBoolean(ConfigReader.get("WordTestevidance"))) {
+            WordEvidenceGenerator.addStep(stepText, status, screenshotPath);
+
         }
 
-        byte[] imageBytes = new File(screenshotPath).toPath().toUri().toURL().openStream().readAllBytes();
-        scenario.attach(imageBytes, "image/png", "Step Screenshot");
-    }
-    @After
-    public void tearDown() {
 
+    }
+
+    @After
+    public void tearDown() throws IOException {
         if (Boolean.parseBoolean(ConfigReader.get("closebroswer"))) {
             DriverManager.closedriver();
         }
         if (Boolean.parseBoolean(ConfigReader.get("killbroswer"))) {
             DriverManager.quitDriver();
         }
+        if (Boolean.parseBoolean(ConfigReader.get("TestEvidence"))) {
+            if (Boolean.parseBoolean(ConfigReader.get("ExcelTestevidance"))) {
+                ExcelEvidenceGenerator.endDocument();
+            }
+            if (Boolean.parseBoolean(ConfigReader.get("WordTestevidance"))) {
+                WordEvidenceGenerator.endDocument();
+            }
+        }
+        //Word file test evidence
+
+
     }
+
     @AfterAll
     public static void afterAll() {
-        extentreportmanager.flushReports();
+
+        ExtentReportManager.getInstance().flushReports();
     }
+
+
+
     private String getFeatureName(String uri) {
         String[] parts = uri.replace("\\", "/").split("/");
         return parts[parts.length - 1].replace(".feature", "");
