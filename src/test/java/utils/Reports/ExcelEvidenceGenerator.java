@@ -13,12 +13,12 @@ public class ExcelEvidenceGenerator {
     private static String filePath;
     private static Sheet currentSheet;
 
-    // 🔹 Start scenario evidence (create/open daily Excel + create sheet if not exists)
+    //  Start scenario evidence (create/open daily Excel + create sheet if not exists)
     public static void startDocument(String scenarioName) {
         try {
             // Daily filename
             String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-            filePath = "evidence/TestEvidence_" + date + ".xlsx";
+            filePath = "evidence/"+scenarioName+"_" + date + ".xlsx";
 
             File file = new File(filePath);
 
@@ -49,11 +49,11 @@ public class ExcelEvidenceGenerator {
             }
 
         } catch (Exception e) {
-            System.err.println("❌ Error starting scenario evidence: " + e.getMessage());
+            System.err.println(" Error starting scenario evidence: " + e.getMessage());
         }
     }
 
-    // 🔹 Add a step row
+    //  Add a step row
     public static void addStep(String stepDescription, String status, String screenshotPath) {
         try {
             int lastRowNum = currentSheet.getLastRowNum();
@@ -96,7 +96,7 @@ public class ExcelEvidenceGenerator {
                 row.createCell(2).setCellValue("No Screenshot");
             }
         } catch (Exception e) {
-            System.err.println("❌ Error adding step: " + e.getMessage());
+            System.err.println(" Error adding step: " + e.getMessage());
         }
     }
 
@@ -110,9 +110,9 @@ public class ExcelEvidenceGenerator {
             workbook.write(fos);
             fos.close();
             workbook.close();
-            System.out.println("✅ Evidence saved: " + filePath);
+            System.out.println(" Evidence saved: " + filePath);
         } catch (Exception e) {
-            System.err.println("❌ Error saving evidence: " + e.getMessage());
+            System.err.println(" Error saving evidence: " + e.getMessage());
         }
     }
 }

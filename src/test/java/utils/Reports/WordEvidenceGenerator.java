@@ -37,7 +37,7 @@ public class WordEvidenceGenerator {
             titleRun.setFontSize(16);
             titleRun.addBreak();
         } catch (Exception e) {
-            System.err.println("❌ Error creating Word document: " + e.getMessage());
+            System.err.println(" Error creating Word document: " + e.getMessage());
         }
     }
 
@@ -88,7 +88,7 @@ public class WordEvidenceGenerator {
             }
 
         } catch (Exception e) {
-            System.err.println("❌ Exception while adding step: " + e.getMessage());
+            System.err.println(" Exception while adding step: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -98,9 +98,9 @@ public class WordEvidenceGenerator {
         try (FileOutputStream out = new FileOutputStream(filePath)) {
             document.write(out);
             document.close();
-            System.out.println("✅ Word report saved: " + filePath);
+            System.out.println(" Word report saved: " + filePath);
         } catch (IOException e) {
-            System.err.println("❌ Error saving Word document: " + e.getMessage());
+            System.err.println(" Error saving Word document: " + e.getMessage());
         }
     }
 }
