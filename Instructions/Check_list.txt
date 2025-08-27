@@ -1,0 +1,13 @@
+SUMMARY CHECKLIST
+----------------------------------------------------
+ Setup Maven + Dependencies                             -
+ Organize package structure                             -
+ Config management                                      -
+ DriverFactory + Waits + JSHelper                       -
+ Data Readers (POI + Fillo + JSON)                      -
+ Page Object Model                                      -
+ Cucumber StepDefs + Hooks                              -
+ Extent Reports + Screenshots                           -
+ API Automation (Rest Assured + GraphQL)                -
+ Jenkins/GitLab integration                             -
+ Extra utilities (Evidence, Retry, Randoms)             -

@@ -1,0 +1,214 @@
+📄 SDET Interview Questions & Coding Challenges
+==============================================
+
+SECTION 1: INTERVIEW QUESTIONS (250+)
+-------------------------------------
+
+ Core Java
+-------------
+- Difference between ArrayList and HashMap. Which one will you use to store test data?
+- What are hashCode() and equals() in Java? Why are they important in collections?
+- Explain final, finally, and finalize().
+- How does Thread.sleep() differ from WebDriverWait?
+- Why is String immutable in Java?
+- Can you create an immutable class in Java? How?
+- Difference between abstract class and interface.
+- What are checked vs unchecked exceptions?
+- Explain polymorphism with an example.
+- What are Lambda expressions in Java 8?
+- Difference between StringBuilder and StringBuffer.
+- Explain volatile and synchronized keywords.
+- How does Garbage Collection work in Java?
+- What are functional interfaces? Give examples.
+- Explain Comparator vs Comparable.
+- What is the diamond problem in Java?
+- Explain try-with-resources in Java.
+
+ Selenium WebDriver
+----------------------
+- Difference between findElement() and findElements().
+- How will you handle dynamic web elements in Selenium?
+- Explain the concept of Page Object Model (POM).
+- What are implicit, explicit, and fluent waits?
+- How do you handle alerts, frames, and multiple windows?
+- How do you take screenshots on test failure?
+- What are relative locators in Selenium 4?
+- What is stale element exception? How do you handle it?
+- How do you run tests in parallel?
+- How do you handle shadow DOM elements?
+- How do you automate file upload/download?
+- How do you use JavaScriptExecutor?
+- CSS Selector vs XPath - which is faster?
+- What are headless browsers? Examples.
+- How do you integrate Selenium Grid for distributed execution?
+
+ BDD (Cucumber)
+-----------------
+- What are feature files, step definitions, and hooks in Cucumber?
+- What is the difference between Scenario Outline and Data Table?
+- What are tags in Cucumber? How do you use them?
+- How do you share data between steps?
+- How do you handle data-driven testing?
+- What is the role of hooks (@Before, @After)?
+- How do you integrate Cucumber with TestNG/JUnit?
+- How do you generate Cucumber Reports?
+- How do you re-run only failed scenarios?
+- What is Background in Cucumber?
+- How do you manage global test data in Cucumber?
+- What is Cucumber dry-run option?
+- How do you run Cucumber tests in parallel?
+
+ API Testing (REST + GraphQL)
+-------------------------------
+- Difference between REST API and GraphQL API.
+- Common HTTP methods (GET, POST, PUT, DELETE, PATCH).
+- How do you validate status code, schema, headers, response time?
+- How do you handle authentication (Basic Auth, OAuth, Token)?
+- What is the difference between SOAP and REST?
+- What is Postman Collection Runner?
+- How do you mock an API in testing?
+- What are GraphQL queries, mutations, subscriptions?
+- How do you validate a GraphQL schema?
+- What is idempotent HTTP method? Examples.
+- Difference between PUT and PATCH.
+- What are HTTP status code ranges?
+- What are CORS issues?
+- How do you handle rate limiting?
+- What is contract testing?
+
+ CI/CD & DevOps
+-----------------
+- How did you integrate automation with Jenkins?
+- How can you schedule nightly regression runs?
+- How do you pass parameters from Jenkins to tests?
+- How do you configure email notifications in Jenkins?
+- Difference between Continuous Integration, Continuous Delivery, Continuous Deployment.
+- How do you integrate automation into GitLab pipelines?
+- What is a Jenkinsfile? Example.
+- How do you trigger automation after every commit?
+- How do you store test reports/logs in Jenkins?
+- How do you run tests in Docker containers?
+- Difference between Freestyle Project and Pipeline Job in Jenkins.
+- What is Blue/Green deployment?
+- What is rolling deployment?
+- How do you manage secrets in Jenkins?
+
+ Test Automation & Framework Design
+-------------------------------------
+- Difference between Hybrid Framework and BDD Framework.
+- How do you design a scalable, reusable framework?
+- How do you handle test data management?
+- What is parallel execution? How do you implement?
+- How do you decide which test cases to automate?
+- How do you implement retry logic for failed tests?
+- How do you integrate Extent Reports?
+- How do you implement logging (Log4j/SLF4J)?
+- How do you handle environment-specific configs?
+- How do you ensure cross-browser testing?
+- Role of Listeners in TestNG.
+- Difference between soft assertions and hard assertions.
+- How do you scale framework when test cases > 5000?
+
+ Leadership & Agile
+---------------------
+- How do you mentor junior QA engineers?
+- How do you collaborate with developers in Agile?
+- What will you do if a critical defect is found in production?
+- How do you ensure traceability between requirements and test cases?
+- How do you handle conflicts in QA team?
+- How do you measure automation ROI?
+- How do you estimate automation effort for a sprint?
+- How do you balance automation vs manual testing?
+- How do you present automation results to stakeholders?
+- How do you align automation with business goals?
+- How do you convince management to invest in automation?
+- How do you handle flaky tests in CI pipelines?
+- How do you manage test debt?
+- How do you lead QA in cross-functional teams?
+
+
+SECTION 2: PROGRAMMING & CODING CHALLENGES
+------------------------------------------
+
+ Java Programming
+-------------------
+Easy:
+1. Reverse a string.
+2. Check if a number is palindrome.
+3. Print Fibonacci series up to 10 numbers.
+4. Count vowels and consonants in a string.
+5. Find factorial of a number using recursion.
+
+Medium:
+6. Find second largest number in an array.
+7. Remove duplicates from an ArrayList.
+8. Find first non-repeated character in a string.
+9. Sort a HashMap by values.
+10. Count occurrences of each word in a string.
+
+Advanced:
+11. Implement custom immutable class.
+12. Implement singleton design pattern.
+13. Use Java 8 Streams to filter even numbers.
+14. Multithreaded program to print odd/even numbers alternately.
+15. Producer-consumer problem using wait/notify.
+
+ Selenium WebDriver
+----------------------
+Easy:
+1. Launch browser and open a URL.
+2. Automate login with username/password.
+3. Count number of links on a webpage.
+4. Print text of dropdown options.
+5. Take screenshot of homepage.
+
+Medium:
+6. Handle multiple tabs.
+7. Handle frames and interact with elements.
+8. Upload a file.
+9. Drag and drop element.
+10. Scroll to an element.
+
+Advanced:
+11. Implement Page Object Model (POM) for login page.
+12. Selenium Grid execution in Chrome + Firefox.
+13. Capture console logs.
+14. Implement retry for failed tests.
+15. Parallel TestNG execution with reports.
+
+ API Testing (REST + GraphQL)
+-------------------------------
+Easy:
+1. REST Assured test to validate GET returns 200.
+2. Extract a field from JSON response.
+3. Validate response body contains string.
+4. Send POST request with JSON.
+5. Validate response headers.
+
+Medium:
+6. Send PUT request to update user.
+7. Validate response time < 2 seconds.
+8. Validate JSON schema.
+9. Send DELETE request (status 204).
+10. Write test with query parameters.
+
+Advanced:
+11. GraphQL query to fetch user details.
+12. GraphQL mutation to update profile.
+13. Automate API auth with Bearer token.
+14. Build API framework with REST Assured + TestNG.
+15. Integrate API tests into Jenkins pipeline.
+
+ Framework & Hybrid
+----------------------
+1. Create BaseTest class for Selenium.
+2. Implement DriverFactory (Singleton).
+3. ConfigReader utility for env configs.
+4. ExcelReader utility for test data.
+5. Cucumber Hooks to capture screenshot on failure.
+6. Integrate Extent Reports with TestNG.
+7. Reusable API client (REST Assured).
+8. Parallel execution via TestNG XML.
+9. Store test results in DB (JDBC).
+10. Integrate framework with Jenkins/GitLab.
+
