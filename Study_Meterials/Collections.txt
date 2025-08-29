@@ -1,0 +1,170 @@
+1. Interfaces
+	These define the abstract data types:
+		Collection: Root interface for all collections (List, Set, Queue).
+		List: Ordered collection (e.g., ArrayList, LinkedList).
+		Set: Unordered collection with no duplicates (e.g., HashSet, LinkedHashSet, TreeSet).
+		Queue: For holding elements prior to processing (e.g., PriorityQueue, ArrayDeque).
+		Map (not a true child of Collection): Key-value pairs (e.g., HashMap, TreeMap, LinkedHashMap).
+		
+		
+2. Implementations (Classes)
+	Concrete implementations of the interfaces:
+		Interface	Common Classes
+		List		ArrayList, LinkedList, Vector, Stack
+		Set			HashSet, LinkedHashSet, TreeSet
+		Queue		PriorityQueue, ArrayDeque
+		Map			HashMap, TreeMap, LinkedHashMap, Hashtable
+		
+	Benefits of the Collections Framework
+		Reusability: 		Common data structures are pre-built and optimized.
+		Interoperability: 	Interfaces allow swapping implementations easily.
+		Extensibility:		You can create your own implementations if needed.
+		Efficiency: 		Collections are optimized for performance and memory.
+		
+
+1. List (Ordered, allows duplicates)
+ ArrayList Example
+ 
+import java.util.*;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Apple"); // duplicate allowed
+        System.out.println(list);
+    }
+}
+
+  LinkedList Example
+ 
+import java.util.*;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        List<String> list = new LinkedList<>();
+        list.add("Dog");
+        list.add("Cat");
+        list.add("Bird");
+        System.out.println(list);
+    }
+}
+2. Set (Unordered, no duplicates)
+ 
+ HashSet Example
+ 
+import java.util.*;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        Set<String> set = new HashSet<>();
+        set.add("Red");
+        set.add("Blue");
+        set.add("Red"); // duplicate ignored
+        System.out.println(set);
+    }
+}
+
+
+  LinkedHashSet Example
+ 
+import java.util.*;
+
+public class LinkedHashSetExample {
+    public static void main(String[] args) {
+        Set<String> set = new LinkedHashSet<>();
+        set.add("One");
+        set.add("Two");
+        set.add("Three");
+        System.out.println(set); // maintains insertion order
+    }
+}
+
+
+  TreeSet Example
+ 
+import java.util.*;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        Set<Integer> set = new TreeSet<>();
+        set.add(10);
+        set.add(5);
+        set.add(20);
+        System.out.println(set); // sorted order: [5, 10, 20]
+    }
+}
+
+3. Map (Key-Value pairs)
+  HashMap Example
+ 
+import java.util.*;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Math", 90);
+        map.put("English", 85);
+        System.out.println(map);
+    }
+}
+
+
+  LinkedHashMap Example
+
+ 
+import java.util.*;
+
+public class LinkedHashMapExample {
+    public static void main(String[] args) {
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("A", "Apple");
+        map.put("B", "Banana");
+        System.out.println(map); // maintains insertion order
+    }
+}
+
+
+  TreeMap Example
+
+ 
+import java.util.*;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        Map<Integer, String> map = new TreeMap<>();
+        map.put(3, "Three");
+        map.put(1, "One");
+        map.put(2, "Two");
+        System.out.println(map); // sorted by keys
+    }
+}
+
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+|         Feature        |                  List                  |                             Set                             |                                       Map                                      |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Implements             | java.util.List                         | java.util.Set                                               | java.util.Map                                                                  |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Stores                 | Elements (single values)               | Elements (unique values)                                    | Key-value pairs                                                                |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Allows Duplicates      | ✅ Yes								  | ❌ No														| ❌ (No duplicate keys)														 |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Allows Nulls           | ✅ Yes (multiple)					  | ✅ Yes (only one null)										| ✅ Yes (one null key, many null values)                                        |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Ordering               | Maintains insertion order              | Depends: • HashSet: No• LinkedHashSet: Yes• TreeSet: Sorted | Depends: • HashMap: No• LinkedHashMap: Insertion order• TreeMap: Sorted by key |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Common Implementations | ArrayList, LinkedList                  | HashSet, LinkedHashSet, TreeSet                             | HashMap, LinkedHashMap, TreeMap                                                |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Access by Index        | ✅ Yes								  | ❌ No														| ❌ No (but accessible by key)													 |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+| Use Case               | Ordered collection, duplicates allowed | Unique elements                                             | Store data as key-value pairs                                                  |  |
++------------------------+----------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------------------------+--+
+
+ Examples
+List: ["Apple", "Banana", "Apple"]
+
+Set: ["Apple", "Banana"] (no duplicates)
+
+Map: {"A" → "Apple", "B" → "Banana"}
+

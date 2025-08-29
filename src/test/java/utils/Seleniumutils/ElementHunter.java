@@ -10,14 +10,18 @@ import java.util.List;
 public abstract class ElementHunter implements IElementHunter {
 
     private static final int DEFAULT_TIMEOUT = 10;
+    private WebDriver driver;
 
+    public ElementHunter(WebDriver driver) {
+        this.driver = driver;
+    }
     // Hunt single element
-    public WebElement hunt(WebDriver driver, String locatorValue) {
-        return hunt(driver, locatorValue, DEFAULT_TIMEOUT);
+    public WebElement hunt( String locatorValue) {
+        return hunt(this.driver, locatorValue, DEFAULT_TIMEOUT);
     }
 
-    public WebElement hunt(WebDriver driver, String locatorValue, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+    public WebElement hunt( String locatorValue, int timeout) {
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(timeout));
         WebElement element = null;
 
 
@@ -58,16 +62,16 @@ public abstract class ElementHunter implements IElementHunter {
     }
 
 
-    public List<WebElement> huntAll(WebDriver driver, String locatorValue) {
+    public List<WebElement> huntAll( String locatorValue) {
 
-        List<WebElement> elements = driver.findElements(By.xpath(locatorValue));
+        List<WebElement> elements = this.driver.findElements(By.xpath(locatorValue));
         if (!elements.isEmpty()) {
             System.out.println(" Found elements using XPath: " + locatorValue);
             return elements;
         }
 
 
-        elements = driver.findElements(By.cssSelector(locatorValue));
+        elements = this.driver.findElements(By.cssSelector(locatorValue));
         if (!elements.isEmpty()) {
             System.out.println(" Found elements using CSS Selector: " + locatorValue);
             return elements;
@@ -86,7 +90,7 @@ public abstract class ElementHunter implements IElementHunter {
         };
 
         for (By locator : locators) {
-            elements = driver.findElements(locator);
+            elements = this.driver.findElements(locator);
             if (!elements.isEmpty()) {
                 System.out.println(" Found elements using: " + locator);
                 return elements;

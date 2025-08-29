@@ -5,9 +5,13 @@ import org.openqa.selenium.*;
 import java.util.List;
 
 public abstract class ElementHunterJS implements IElementHunter {
-
+    private WebDriver driver;
+    private JavascriptExecutor js = (JavascriptExecutor) driver;
+    public ElementHunterJS(WebDriver driver) {
+        this.driver = driver;
+    }
     public WebElement hunt(WebDriver driver, String locatorValue) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+
         WebElement element = null;
         try {
             element = (WebElement) js.executeScript("return document.evaluate(\"" + locatorValue + "\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;");
@@ -47,8 +51,7 @@ public abstract class ElementHunterJS implements IElementHunter {
         throw new RuntimeException(" Element not found via JavaScript for locator: " + locatorValue);
     }
 
-    public List<WebElement> huntAll(WebDriver driver, String locatorValue) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+    public List<WebElement> huntAll( String locatorValue) {
         List<WebElement> elements = null;
         try {
             elements = (List<WebElement>) js.executeScript("return Array.from(document.querySelectorAll(\"" + locatorValue + "\"));");
