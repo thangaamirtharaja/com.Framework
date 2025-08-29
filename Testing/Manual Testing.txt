@@ -1,0 +1,359 @@
+Software lifecycle Models
+	Waterfall Model
+	V Model
+	Incremental Model 	
+	Rad Model
+	Agile Model
+	Iterative Model 	
+	Spiral Mode
+
+1. Waterfall Model
+		Description: Linear and sequential model.
+		Phases: Requirement → Design → Implementation → Testing → Deployment → Maintenance.
+		Best For: Projects with well-defined requirements.
+		Pros: Simple, easy to manage.
+		Cons: Rigid, not ideal for projects with changing requirements.
+
+2. V Model (Verification and Validation Model)
+		Description: Extension of the Waterfall model; testing is planned alongside development.
+		Structure: Each development stage has a corresponding testing phase.
+		Best For: Critical systems (e.g., medical, defense).
+		Pros: Emphasizes testing early.
+		Cons: Inflexible, costly to change requirements.
+
+3. Incremental Model
+		Description: Builds system in increments or modules.
+		Approach: Each increment adds functionality.
+		Best For: Projects needing partial implementation early.
+		Pros: Flexible, early delivery possible.
+		Cons: Needs good planning and design.
+
+4. RAD Model (Rapid Application Development)
+		Description: Emphasizes rapid prototyping and fast feedback.
+		Focus: User involvement and quick iterations.
+		Best For: Projects with tight deadlines.
+		Pros: Fast development, customer feedback driven.
+		Cons: Not suitable for large, complex systems.
+
+5. Agile Model
+		Description: Iterative and incremental; adaptive to change.
+		Phases: Requirement → Design → Implementation and Testing → Deployment 
+		Frameworks: Scrum, Kanban, XP, etc.
+		Best For: Projects needing flexibility and frequent updates.
+		Pros: Customer-focused, flexible, collaborative.
+		Cons: Requires high customer involvement and skilled teams.
+
+6. Iterative Model
+		Description: Develops system through repeated cycles (iterations).
+		Process: Plan → Design → Implement → Test → Evaluate → Repeat.
+		Best For: Projects with evolving requirements.
+		Pros: Easier to manage risks and change.
+		Cons: May be resource-intensive	
+
+7. Spiral Model
+		Description: Combines iterative development with risk analysis.
+		Structure: Four phases in each spiral - Planning, Risk Analysis, Engineering, Evaluation.
+		Best For: Large, complex, high-risk projects.
+		Pros: Focuses on risk management.
+		Cons: Expensive and complex to manage.
+
+Introduction To Testing
+	Why Testing
+	STLC- Software Testing Life Cycle
+		Requirement Analysis
+		Test Planning
+		Test Case Design
+		Environment Setup
+		Test Execution
+		Test Cycle Closure
+ 	
+	Verification And Validation
+			Verification (Are we building the product right?):
+ 					Process-oriented
+ 					Ensures the product is designed correctly
+ 					Done through reviews, walk-throughs, inspections
+ 			Validation (Are we building the right product?):
+					Product-oriented
+					Ensures the final product meets user needs
+					Done through testing
+	
+	
+	Desktop, Web And Mobile Applications Testing
+*********************************************************************************************************************
+	
+Test Strategy & Test Planning With A Live Project
+	Working On Test Strategy
+	Preparing Test Plan Document
+ 	Clarification Document
+	Getting Familiar With Test Design
+
+Test Strategy & Test Planning with a Live Project
+			1. Working on Test Strategy
+					This is a high-level document that outlines the approach, goals, and scope of testing activities for the project. It is created during the early stages of the project lifecycle.
+
+				Key Components:
+ 					Testing objectives
+					Test levels (unit, integration, system, UAT)
+					Types of testing (functional, non-functional, regression, performance, etc.)
+					Roles & responsibilities
+					Tools and environment
+					Risk analysis and mitigation plans
+				
+				Live Project Example: For an e-commerce app, the strategy may include automation of regression tests using Selenium and manual testing for new features.
+
+			 2. Preparing Test Plan Document
+					The Test Plan is more detailed and specific to a particular phase or module of the project. It is derived from the Test Strategy.
+					
+					Includes:
+					Test items (features to be tested)
+					Features not to be tested
+					Test environment setup
+					Entry and exit criteria
+					Test deliverables
+					Schedule and resource allocation
+					
+					Live Project Example: If the payment gateway is being tested, the test plan might focus on credit card, UPI, and wallet integrations separately.
+					
+			3. Clarification Document
+				This document is used to track queries raised during requirement analysis or while reviewing specifications.
+				Purpose:
+					To document open questions
+					Get clarifications from business analysts or developers
+					Ensure no ambiguity in requirements
+					
+					Live Project Example: A tester may ask, "Should the discount code apply before or after tax?" and record the answer for future reference.
+
+			4. Getting Familiar with Test Design
+				Once planning is done, testers move to test design, where actual test cases are written.
+					Includes:
+					Understanding requirement documents (SRS, BRD, user stories)
+					Designing test scenarios and test cases
+					Identifying test data
+					Reviewing test cases for coverage and clarity
+					
+					Live Project Example: If you're testing a login feature, your test cases would cover valid logins, invalid logins, blank fields, and lockout after failed attempts.
+
+**************************************************************************************************************
+Preparing a test case Document
+	Boundary Value Analysis (BVA)
+	Equivalence Partitioning (EP) 
+	Decision Table Testing
+	State Transition Diagrams
+	Use Case Testing
+	Statement Coverage 
+	Path Coverage 
+	LCSAJ Testing
+
+Test Case Document
+1. Boundary Value Analysis (BVA)
+	Test Case ID	Input (Password Length)		Expected Result
+	TC_BVA_01		5 (min - 1)					Error: Too short
+	TC_BVA_02		6 (min)						Success/Login allowed
+	TC_BVA_03		7 (min + 1)					Success/Login allowed
+	TC_BVA_04		19 (max - 1)				Success/Login allowed
+	TC_BVA_05		20 (max)					Success/Login allowed
+	TC_BVA_06		21 (max + 1)				Error: Too long
+
+2. Equivalence Partitioning (EP)
+	Test Case ID	Input (Username Type)	Class			Expected Result
+	TC_EP_01		"john_doe"				Valid input		 Success/Login allowed
+	TC_EP_02		"" (empty)				Invalid input	Error: Required field
+	TC_EP_03		"john@123!"				Invalid input	Error: Special characters
+
+3. Decision Table Testing
+	Condition		Rule 1	Rule 2	Rule 3	Rule 4
+	Valid Username	Yes		Yes		No		No
+	Valid Password	Yes		No		Yes		No
+	Action			Login	Error	Error	Error
+	
+4. State Transition Diagrams
+States:
+	Logged Out
+	Logging In
+	Logged In
+	Locked Out	
+
+	Current State	Input					Next State
+	Logged Out		Correct credentials		Logged In
+	Logged Out		Wrong credentials (3x)	Locked Out
+	Locked Out		Wait timeout			Logged Out
+	Logged In		Logout					Logged Out
+
+5. Use Case Testing
+Use Case: User logs in to view dashboard.
+
+	Steps:
+		valid username and password.
+		Click "Login".
+		System authenticates credentials.
+		Redirect to dashboard.
+		
+	Test Cases:
+		TC_UC_01: All valid -> Success.
+		TC_UC_02: Invalid password -> Error message shown.
+
+6. Statement Coverage
+	if username != "" and password != "":
+		if authenticate(username, password):
+			return "Login Success"
+		else:
+			return "Invalid credentials"
+		else:
+			return "Missing fields"
+
+		Test Cases for Full Statement Coverage:
+		TC_SC_01: Both fields filled, valid credentials
+		TC_SC_02: Both fields filled, invalid credentials
+		TC_SC_03: One or both fields empty
+
+7. Path Coverage
+Possible Paths:
+	Fill fields → Valid → Success
+	Fill fields → Invalid → Fail
+	Empty fields → Error
+	Test Cases: Same as statement coverage but ensuring each path is tested individually.		
+
+8. LCSAJ Testing (Linear Code Sequence And Jump)
+	1. Check fields                 1. valid userid
+	2. Authenticate user            2. valid pass
+	3. If fail → show error         
+	4. If success → redirect
+	
+	LCSAJ Sequences:
+		1-2-4 (Success)
+		1-2-3 (Failure)
+		1-3 (Empty fields → error)
+		Test each linear path and jump explicitly.
+
+Executing test cases 
+
+Test Reporting
+
+Defect tracking Mechanism and life cycle
+
+			Stage		Description
+		1. New			Tester reports a bug. It's logged into the defect tracking system (e.g., JIRA, Bugzilla).
+		2. Assigned		The defect is assigned to a developer for analysis.
+		3. Open			Developer acknowledges and starts working on the fix.
+		4. In Progress	Actively being worked on. Code changes are made.
+		5. Fixed		Developer marks the bug as "Fixed" after applying a solution.
+		6. Retest		QA team tests the fix in the next test cycle.
+		7. Verified		Tester confirms the issue is resolved correctly.
+		8. Closed		Bug is closed as it is fixed and verified.
+(Optional) Reopened	If the issue still exists after the fix, it's reopened.
+(Optional) Rejected / Not a Bug	If it’s not a valid defect or duplicate.
+ 
+Defect Categorization
+	Guidelines On Deciding the Severity Of A Defect
+		Severity is about impact on the system, regardless of when it will be fixed.
+	
+	Guidelines On Deciding The Priority Of Bug
+		Defect categorization helps identify the type and area of a bug, which supports prioritization and resolution.
+
+Cost of Quality
+		Cost of Quality refers to the total cost incurred to prevent, detect, and fix issues related to quality throughout the product lifecycle. It’s not just about fixing bugs—it's about measuring how much is spent to ensure the product meets quality standards.
+		
+Defect Management with Tools like Bugzilla , jira 
+
+####################################################################################################################
+
+Software testing Techniques
+	Static testing 
+	Dyanamic Testing
+	White Box Testing/Structure Testing 
+	Black Box Testing
+	
+	1. Static Testing
+		Definition: Testing without executing the code. It's done to catch defects early in the development lifecycle.
+	2. Dynamic Testing
+		Definition: Testing by executing the code to check for functional correctness, behavior, and performance.
+	3. White Box Testing (Structural Testing)
+		Definition: Testing based on the internal structure or logic of the code.
+	4. Black Box Testing
+		Definition: Testing the application behavior/functionality without knowing the internal code structure.	
+  
+Types Of Testing - Functional Testing:
+	Unit Testing 
+	Integration Testing 
+	Smoke Testing
+	System Testing 
+	Regression Testing
+	User Acceptance Testing 
+	Globlization Testing 
+	Localization Testing      
+	
+	Unit Testing
+	Focus: Individual components or functions.
+	Goal: Ensure each unit of the software performs as expected.
+	Who performs it: Developers (often automated).
+	Example: Testing a function that calculates the total price in a shopping cart.
+	
+	Integration Testing
+	Focus: Interaction between units/modules.
+	Goal: Verify that combined components work together correctly.
+	Who performs it: Developers or testers.
+	Example: Testing how the login module interacts with the user database.
+
+
+	Smoke Testing
+	Focus: Basic functionality check.
+	Goal: Ensure the most crucial functions work after a new build.
+	Who performs it: Testers.
+	Example: After deployment, testing if the app launches and main features load.
+
+
+	System Testing
+	Focus: Entire system as a whole.
+	Goal: Validate the system against the requirements.
+	Who performs it: QA team.
+	Example: End-to-end testing of an e-commerce application.
+	
+	Regression Testing
+	Focus: Previously working features.
+	Goal: Ensure that new changes didn’t break existing functionality.
+	Who performs it: QA/testers (manual or automated).
+	Example: After adding a new payment method, rechecking checkout functionality.
+
+
+	User Acceptance Testing (UAT)
+	Focus: Business requirements.
+	Goal: Confirm the system works for the end-users.
+	Who performs it: Clients or end-users.
+	Example: Clients using the app in a staging environment before final release.
+
+
+	Globalization Testing
+	Focus: Software adaptability for global use.
+	Goal: Ensure it works across different cultures, languages, and regions.
+	Example: Date/time, currency, and number formatting across regions.
+
+
+	Localization Testing
+	Focus: Software behavior in a specific locale.
+	Goal: Check the correctness of translated content, UI layout, and cultural relevance.
+	Example: Verifying that the French version uses correct translations and fits UI elements.
+
+
+	
+	
+Types of Testing-Non Functional Testing:
+	Performance Testing 
+	Compatibility Testing 
+	Data migration testing
+	Data Conversion Testing 
+	Security/Penetration Testing 
+	Usability Testing
+	Install/ Un-install Testing	
+	
+Starting with Automation Testing:
+	Why Test Automation
+	Automation Feasibility Analysis 
+	Planning And Design
+	Test Environment Setup
+	Automation Script Generation
+	Test Execution
+	Defect Analysis & Fixing 
+	Cost Involved In Automation
+	Automation Applied To Different Types Of Testing
+
+	

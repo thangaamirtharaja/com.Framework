@@ -1,0 +1,84 @@
+Link: https://www.leafground.com/dashboard.xhtml;jsessionid=node01r1bgruqtbjpcx7dngkfigmax8730084.node0
+
+taskkill -f -im chromedriver.exe
+taskkill -f -im chrome.exe
+
+Selenium IDE
+	Selenium IDE is a browser extension (available for Firefox and Chrome) 
+	that allows users to record, edit, and playback test cases without writing any code. 
+	
+Types of Selenese Commands
+	Actions – Interact with web elements (e.g., click, type).
+	Assertions – Verify expected vs. actual outcomes (e.g., assertTitle).
+	Accessors – Store values from the page into variables.
+	
+Introduction to Selenium RC
+	Selenium Remote Control (RC) was an older version of Selenium that allowed automated testing using multiple programming languages. It required a Selenium Server to be started before running tests.
+
+	However, Selenium WebDriver has now replaced Selenium RC, offering better performance and direct browser automation.
+	
+Introduction to Selenium WebDriver
+	Selenium WebDriver is a powerful tool used for automating web application testing across multiple browsers. It interacts with web elements just like a real user would
+	
+Object Locators / Identification
+To interact with web elements, Selenium provides different locators:
+	id
+	name
+	className
+	tagName
+	linkText
+	partialLinkText
+	cssSelector
+	xpath
+	
+Handling Various WebElements Using WebDriver
+Selenium can interact with different types of elements:
+	Text Boxes: sendKeys(), clear()
+	Buttons & Links: click()
+	Dropdowns: selectByValue(), selectByIndex()
+	Checkboxes & Radio Buttons: isSelected(), click()	
+	
+	dropdown sccript
+	 Select dp  = new Select(driver.findElement(By.xpath("//*[@id=\"j_idt87\"]/div/div[1]/div[1]/div/div/select")));
+	  dp.selectByIndex(1);
+	
+Selenium WebDriver provides the Actions class to perform:
+	Hovering
+	Drag and Drop
+	Right-click (context click)
+	Double-click	
+	
+	Actions action = new Actions(driver);
+	WebElement element = driver.findElement(By.id("menu"));
+	action.moveToElement(element).perform();
+	WebElement element1 =driver.findElement(By.xpath("//*[@id=\"menuform:j_idt37\"]/a"));
+	  WebElement element2 =driver.findElement(By.xpath("//*[@id=\"menuform:m_dashboard\"]/a"));
+	  Actions A = new Actions(driver);
+	  A.moveToElement(element1).build().perform();
+	  A.click(element1).build().perform();
+	  A.moveToElement(element2).build().perform();
+	  A.click(element2).build().perform();
+	  A.dragAndDrop(element1, element2).build().perform();
+	
+	
+Handling Pop-Ups, Windows, and Alerts
+	JavaScript Alerts: switchTo().alert()
+	Authentication Pop-ups: Pass credentials in the URL (http://username:password@website.com)
+		
+	Alert alert = driver.switchTo().alert();
+	alert.accept();  // Clicks OK
+	alert.dismiss(); // Clicks Cancel
+	
+	New Browser Windows/Tabs: switchTo().window()
+	
+Extract data from dynamic tables using XPath:
+	WebElement table = driver.findElement(By.id("customers"));
+	List<WebElement> rows = table.findElements(By.tagName("tr"));
+	for (WebElement row : rows) {
+    List<WebElement> cols = row.findElements(By.tagName("td"));
+    for (WebElement col : cols) {
+        System.out.println(col.getText());
+		}
+	}
+
+

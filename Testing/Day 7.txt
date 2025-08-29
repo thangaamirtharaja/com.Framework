@@ -1,0 +1,148 @@
+
+
+
+Reading & Understanding Reports
+TestNG Reports
+Extent Reports
+
+ExtentReports extent = new ExtentReports("report.html", true);
+
+
+Capturing Screenshots for Failed Test Cases
+ implements ITestListener
+<suite name="MySuite">
+  <listeners>
+    <listener class-name="your.package.name.MyListener"/>
+  </listeners>
+
+  <test name="MyTests">
+    <classes>
+      <class name="your.package.name.MyTest"/>
+    </classes>
+  </test>
+</suite>
+
+@Listeners(MyListener.class)
+public class MyTest {}
+
+Automating Real-Time Scenarios
+Examples:
+Login Automation
+Data-driven testing using Excel
+Automating Captcha using OCR APIs
+Handling File Upload & Download using AutoIT
+File Upload
+Create AutoIT Script (upload.au3):
+autoit
+CopyEdit
+ControlFocus("Open","","Edit1")
+ControlSetText("Open","","Edit1","C:\path\to\file.txt")
+ControlClick("Open","","Button1")
+
+
+Compile it to .exe and Call from Selenium:
+
+Runtime.getRuntime().exec("C:\\path\\to\\upload.exe");
+
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>2.0.29</version>
+</dependency>
+
+DESIGN PATTERN - PAGE OBJECT MODEL (POM)
+ What is POM?
+Separates UI elements and test scripts.
+Each web page has a separate Java class.
+What is a Page Factory?
+Enhances POM with @FindBy annotations.
+Example:
+
+public class LoginPage {
+    WebDriver driver;
+    
+    @FindBy(id="username") 
+    WebElement username;
+    
+    @FindBy(id="password") 
+    WebElement password;
+
+    @FindBy(id="loginButton") 
+    WebElement loginButton;
+    
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void login(String user, String pass) {
+        username.sendKeys(user);
+        password.sendKeys(pass);
+        loginButton.click();
+    }
+}
+
+
+Implementing POM in Test Execution
+
+@Test
+public void testLogin() {
+    WebDriver driver = new ChromeDriver();
+    LoginPage login = new LoginPage(driver);
+    login.login("admin", "admin123");
+}
+			
+
+CUCUMBER - BDD FRAMEWORK
+What is Cucumber?
+Behavior-Driven Development (BDD) testing framework.
+Uses Gherkin syntax (Given-When-Then).
+Why Use Cucumber?
+✔ Readable tests (English-like syntax)
+✔ Bridges communication between testers, developers, & business teams
+BDD & Its Application
+Example Gherkin Test Case:
+gherkin
+CopyEdit
+Feature: Login Functionality
+  Scenario: Successful login
+    Given User is on login page
+    When User enters "admin" and "admin123"
+    Then User should be redirected to the dashboard
+
+ Components of Gherkin
+Feature → Describes the functionality.
+Scenario → A single test case.
+Given → Precondition.
+When → Action.
+Then → Expected Result.
+Step Definitions in Java
+
+public class LoginSteps {
+    @Given("User is on login page")
+    public void user_is_on_login_page() {
+        driver.get("https://example.com");
+    }
+
+    @When("User enters {string} and {string}")
+    public void user_enters_username_and_password(String username, String password) {
+        driver.findElement(By.id("username")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+    }
+
+    @Then("User should be redirected to the dashboard")
+    public void user_should_be_redirected_to_dashboard() {
+        Assert.assertEquals(driver.getTitle(), "Dashboard");
+    }
+}
+
+Setting up a Cucumber Project
+Add Cucumber dependencies in pom.xml:
+xml
+CopyEdit
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>7.0.0</version>
+</dependency>
+Use Runner Class to execute tests.

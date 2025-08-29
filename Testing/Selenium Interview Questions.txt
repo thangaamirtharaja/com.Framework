@@ -1,0 +1,212 @@
+Selenium and Core Java Interview Questions
+
+1.Tell me about yourself.
+2.Tell me about your previous project/ current project?
+
+Automation Testing:
+1.How many years of experience do you have in automation/selenium?
+2.What type of tests have you automated?
+3.How many test cases you have automated per day?
+4.What is difference between manual and automation testing?
+5.How to choose automation tool for your project?
+
+Functional Testing:
+1.Explain defect life cycle?
+2.What is SDLC and STLC? Explain?
+3.What is priority and severity of bug? explain with example.
+
+Framework:
+1.What is a Framework?
+2.Have you created any Framework?/ Which type of framework you used in your project?
+3.What are the different types of framework? 
+4.Explain test automation framework used in your project?
+5.What is Data-driven framework?
+6.Why do we need/use Data-Driven Framework in Selenium?
+7.What is Keyword driven framework?
+8. In which kind of application, keyword-driven framework is the best choice
+9. When should to Design Data Driven, Keyword Driven, and Hybrid Frameworks in Selenium?
+10.How do we store data into properties file?
+11.What is the return type of getProperty() method?
+12.Where do we use oops concept in framework
+
+Selenium:
+1.What is Selenium? What are its different component? 
+2.What is Selenium WebDriver?
+3.What is Selenium Grid? When do you use Selenium Grid?
+4.What are the types of WebDriver APIs available in Selenium?
+5.Which WebDriver implementation claims to be the fastest?
+6.What are the Programming Languages supported by Selenium WebDiver?
+7.What are the Operating Systems supported by Selenium WebDriver?
+8.What are the Open-source Frameworks supported by Selenium WebDriver?
+9.What are the Locators available in Selenium?
+10.What is an XPath?
+11.What is the difference between “/” and “//”?
+12.What is the difference between Absolute Path and Relative Path?
+13.What is the difference between Assert and Verify in Selenium?
+14.What are Soft Assert and Hard Assert in Selenium?
+15.How to launch a browser using Selenium WebDriver?
+16.Is the FirefoxDriver a Class or an Interface?
+17.What is the super interface of WebDriver?
+18.Explain the line of code Webdriver driver = new FirefoxDriver(); ?
+19.We do create a reference variable ‘driver’ of type WebDriver
+WebDriver driver = new FirefoxDriver(); 
+instead of creating 
+FirefoxDriver driver = new FirefoxDriver();
+What is the purpose of doing this way?
+20.What are the different exceptions you have faced in Selenium WebDriver?
+21.What are the types of waits available in Selenium WebDriver?
+22.What is Implicit Wait In Selenium WebDriver?
+23.What is WebDriver Wait In Selenium WebDriver?
+24.What is Fluent Wait In Selenium WebDriver?
+25.How to input text in the text box using Selenium WebDriver?
+26.How to input text in the text box without calling the sendKeys()?
+27.How to clear the text in the text box using Selenium WebDriver?
+28.How to get a text of a web element?
+29.How to click on a hyperlink using Selenium WebDriver?
+30.How to submit a form using Selenium WebDriver?
+31.How to press ENTER key on text box In Selenium WebDriver?
+32.How to pause a test execution for 5 seconds at a specific point?
+33.What happens if I run this command. driver.get(“www.softwaretestingmaterial.com”);
+34.What is the alternative to driver.get() method to open an URL using Selenium WebDriver?
+35.What is the difference between driver.get() anddriver.navigate.to(“url”)?
+36.Can I navigate back and forth in a browser in Selenium WebDriver?
+37.How to fetch the current page URL in Selenium?
+38.How can we maximize browser window in Selenium?
+39.How to delete cookies in Selenium?
+40.How to handle alerts in selenium?
+41.Consider a situation: Selenium Script runs in Chrome , but not in IE. How can you resolve the issue?
+42.What is the difference between driver.getWindowHandle() and driver.getWindowHandles() in Selenium WebDriver?
+43.What is the difference between driver.close() and driver.quit() methods?
+44.What is the difference between driver.findElement() and driver.findElements() commands?
+45.How to capture Screenshot in Selenium WebDriver?
+46.How can we handle web based pop-up?
+47.How can we handle windows based pop up?
+48.How to handle hidden elements in Selenium WebDriver?
+49.How do you read test data from excels?
+50.List some scenarios which we cannot automate using Selenium WebDriver?
+51.What is Object Repository in Selenium WebDriver? How you build Object Repository in your project?
+52.What is the difference between Page Object Model (POM) and Page Factory?
+53.What are the advantages of Page Object Model Framework?
+54.How to Upload and download a file in Selenium WebDriver?
+55.How to connect a Database in selenium?
+56.How To Scroll Web Page Down Or UP Using Selenium WebDriver?
+57.How To Perform Drag And Drop Action in Selenium WebDriver?
+58.CSS Vs XPath? Which one is better?
+59.Difference between webdriver and remote webdriver?
+60.Difference between TDD and BDD?
+61.What are different responses we get in APU results?
+62.What is Robot class?
+63.For database testing in selenium webdriver which API is required
+
+TestNG:
+1.What is TestNG? What are the annotations available in TestNG?
+2.What is TestNG Assert and list out some common Assertions supported by TestNG?
+3.How to create and run TestNG.xml?
+4.What is Parameterized testing in TestNG?
+5.What is the use of @Listener annotation in TestNG?
+6.What are the exceptions in selenium?
+7.How to perform crossbrowser testing using TestNG?
+
+Core Java:
+1.What are the OOPs concepts?
+2.What is Inheritance?
+3.What is Encapsulation?
+4.What is Polymorphism?
+5.What is meant by Abstract class?
+6.Difference between Array and Array List
+7.Difference between String, String Builder, and String Buffer
+8.Difference between Default and Protected access specifiers.
+9.Difference between HashMap and HashTable
+10.Difference between Abstract class and Interface.
+11.What is the meaning of Collections in Java?
+12.What are all the Classes and Interfaces that are available in the collections?
+13.Explain the different lists available in the collection
+14.Explain about Set and their types in a collection
+15.Explain about Map and its types
+16.Differences between Abstraction and Encapsulation
+17.What does the “static” keyword mean ? Can you override private or static method in Java ?
+18.Can you access non static variable in static context ?
+19.What is tightly encapsulated class in Java?
+20.What are the Data Types supported by Java ? What is Auto boxing and Unboxing ? .
+21.What is Function Overriding and Overloading in Java ? 
+22.What is a Constructor, Constructor Overloading in Java?
+23.What is the difference between an Interface and an Abstract class ?
+24.Does Java support multiple inheritance ?
+25.What are pass by reference and pass by value ?
+26.What is the difference between a synchronized method and a synchronized block ?
+27.What’s a deadlock ?
+28.What are the two types of Exceptions in Java ? Which are the differences between them 
+29.What are the different ways to handle exceptions
+30.What is the difference between Exception and Error in Java ?
+31.What is the difference between throw and throws ?
+32.What is the importance of finally block in exception handling ?
+33.How does finally block differ from finalize() method ?
+34.What is the final keyword in Java?
+35. What is a Thread? How do you make a thread in Java?
+36.What do you mean by Constructor?
+37.What is a Class?
+38.What is an Object?
+39. Explain the thread life cycle in Java.
+40.Difference between notify() method and notifyAll() method in Java.
+41.What is Synchronization?
+42.When to use the Runnable interface Vs Thread class in Java?
+43.How to stop a thread in java? Explain about sleep () method in a thread?
+44.What is meant by Serialization?
+45.How do you reverse a strings in Java
+46.How do you create a deadlock scenario programmatically in Java?
+					
+				  
+ 
+Basic Java Programs:
+1.How do you swap two numbers without using third variable in Java
+2.Write a Java program to check if a vowel is present in a string
+3.Write a Java program to check if the given number is a prime number.
+4.Write a Java program to print a Fibonacci sequence using recursion.
+5.How do you check whether a string is a palindrome in Java?
+6.Write a Java Program to reverse a string 
+7.Write a Java Program to reverse a string without using String inbuilt function reverse().
+8.How to create object in java
+9.Java Program to find largest and smallest of three numbers
+10.Write a program to print the duplicate elements of an array
+11.Write a program to print the elements of an array in reverse order
+12.Write a program to sort the elements of an array in ascending and descending order
+13.Write a program to count the total number of characters in a string
+14.Write a program to find maximum and minimum occurring character in a string
+15.Write a program to find duplicate characters in a string
+16.Write a program for bubble sort
+17.Write a program for Selection sort
+18.Write a program for insertion sort
+19. Write Java programs for Method overriding and Method overloading
+20.Write a program to check whether a number is even or odd
+21.Write a program to check whether a character is Alphabet or not
+22.Write a program to calculate the sum of Natural numbers.
+23.Write a program to count the number of digits in an Integer
+
+Agile Methodology:
+1.What is agile testing
+2.Define the roles in scrum
+3.What is Product Backlog & Sprint Backlog?
+4.Explain the difference between a traditional Waterfall model and Agile testing?
+5.How do you deal when requirements change frequently?
+6.What is the difference between Epic, User stories & Tasks?
+7.How can QA add value to an agile team?
+8.What is the importance of daily stand-up meetings?
+9.What is Continuous Integration?
+10.What is the duration of a scrum sprint?
+11.What is the difference and similarity between Agile and Scrum?
+12.What do you know about a story point in Scrum?
+13.What is Sprint Retrospective and Sprint Planning
+14.What is backlog refinement
+15.What is Sprint Review
+
+
+
+
+
+
+
+
+
+
+
+

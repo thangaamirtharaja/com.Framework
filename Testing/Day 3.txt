@@ -1,0 +1,34 @@
+Access Modifires:
+		  Deafult   - When No access modifier is specified
+		  private	- only within the class in which they are declared 
+		  protected - within same package/sub clasess in diffrent package
+		  public 	- from evrey where in the program.
+		
+Access Modifires		same class		same package		subclass		otherpackage
+	Deafult                 Y                Y                 N                 N
+	private                 Y                N                 N                 N
+	Protected               Y                Y                 Y                 N
+	public	                Y                Y                 Y                 Y
+	
+Inheritance (extends):
+	process of acquring properties(data+methods)
+	the which one takes - child class
+	the which one gives - parent class
+	* A child can be a parent of another class
+	* A paren can be a child of another class
+
+Types of Inheritance;
+	1. Single : A -> B
+	2. Multi level : A -> B -> C
+	3. Multiple : A + B -> C(Not supported in Java)
+	4. heirarical : A -> B, A->C, A->D
+	
+
+Polymorphism:
+		Polymorphism is the capability of a mathod to do different things based on the object.
+
+		Types:
+		1. Static, compile, early binding (Over loading)
+		2. Dynamic, runtime, late binding (over ridding)
+
+

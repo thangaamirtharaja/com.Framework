@@ -1,0 +1,25 @@
+Abstraction:
+		Hiding the implemetation details.
+		
+Types of Abstraction:
+			1. Abstract Class (0 to 100% Abstraction)
+			2. Interface (100% Abstraction)
+			
+			
+Abstract Class: 			
+	1. abstract
+	2. Parent(10%) -> Child (10%)
+
+Interface:
+	1. 100%
+	2. Like a class but it is not a class
+	3. An interface have method and variable like class but the variable and methods are public, static and final by default
+
+-Selenium:
+	Selenium is both a chemical element and a software framework for automated web testing. 
+	
+-Selenium RC and Selenium webdriver
+
+-TestNG - Test Next Generation
+
+

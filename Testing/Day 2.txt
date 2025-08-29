@@ -1,0 +1,32 @@
+If
+    It is used to decide whether a certain statement or block of statements will be executed or not 
+
+Switch Case: 
+	Switch case statment is used when we have  N number of options and we may need to perform a different task for each option.
+	
+Looping Statments:
+	for
+	while
+	do while
+
+for
+	For loops in Java are a fundamental control structure used to repeat a block of code a specific number of times
+	
+While
+	The Java while loop is used to iterate a part of the program repeatedly until the specified Boolean condition is true
+	
+do while	
+	Java do-while loop is called an exit control loop. Therefore, unlike while loop and for loop, the do-while check the condition at the end of loop body
+
+Switch case:
+		The Java switch statement executes one statement from multiple conditions. 
+
+OOPS
+	1. Inheritance
+	2. Polymorphism	
+	3. Abstraction
+	4. Encapsulation 
+	
+Encapsulation:
+		Process of binding data and methods to gether into a single unit.
+	

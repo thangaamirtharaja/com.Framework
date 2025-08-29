@@ -1,0 +1,134 @@
+New Browser Windows/Tabs: switchTo().window()
+		
+SELENIUM WEBDRIVER
+Windows Handling in Selenium
+Selenium provides methods to handle multiple browser windows:
+Get Window Handle (Current Window)
+
+String mainWindow = driver.getWindowHandle();
+
+
+		  
+Get All Window Handles (Multiple Windows)
+
+Set<String> allWindows = driver.getWindowHandles();
+for (String window : allWindows) {
+    driver.switchTo().window(window);
+}
+
+
+Switch to a Specific Window
+
+driver.switchTo().window(childWindow);   
+
+ HEADLESS BROWSER TESTING
+What is Headless Browser Testing?
+Running Selenium without opening a browser UI.
+Used for faster execution in CI/CD pipelines.
+ Advantages & Disadvantages
+✔ Faster execution
+✔ Runs on servers (no GUI required)
+✔ Consumes fewer resources
+❌ No visual debugging
+❌ Some elements may not render properly
+ Testing with Different Headless Browsers
+Chrome Headless Mode
+
+ChromeOptions options = new ChromeOptions();
+options.addArguments("--headless");
+WebDriver driver = new ChromeDriver(options);
+
+HTMLUnitDriver
+
+WebDriver driver = new HtmlUnitDriver();
+driver.get("https://example.com");
+
+PhantomJS (Deprecated)
+
+WebDriver driver = new PhantomJSDriver();
+
+
+
+TakesScreenshot ts = (TakesScreenshot) driver;
+File src = ts.getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(src, new File("Screenshots/testFailure.png"));
+
+
+
+
+
+
+Handling WebTables
+Find Table Elements
+
+WebElement table = driver.findElement(By.id("tableId"));
+List<WebElement> rows = table.findElements(By.tagName("tr"));
+for (WebElement row : rows) {
+    List<WebElement> columns = row.findElements(By.tagName("td"));
+    for (WebElement column : columns) {
+        System.out.println(column.getText());
+    }
+}
+
+
+
+
+
+
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+
+
+TESTING FRAMEWORKS
+Keyword-Driven Framework
+Uses predefined keywords like ClickButton, EnterText.
+
+Keywords are stored in Excel, XML, or properties files.
+
+Data-Driven Framework
+Uses Excel, CSV, JSON for test data.
+Example: Reading Excel Data
+
+FileInputStream file = new FileInputStream("TestData.xlsx");
+XSSFWorkbook workbook = new XSSFWorkbook(file);
+XSSFSheet sheet = workbook.getSheet("LoginData");
+String username = sheet.getRow(1).getCell(0).getStringCellValue();
+
+FileInputStream fis = new FileInputStream(filePath);
+        Properties prop = new Properties();
+        prop.load(fis);
+        String s = prop.getProperty(key);
+		
+	browser=chrome
+	url=https://www.google.com
+	username=testuser
+	password=123456
+
+Admin
+admin123
+
+XML Parametrization:  
+<suite name="SuiteExample">
+    <test name="TestExample">
+        <!-- Define Parameters -->
+        <parameter name="username" value="testUser"/>
+        <parameter name="password" value="testPass123"/>
+        <classes>
+            <class name="com.example.TestLogin"/>
+        </classes>
+    </test>
+</suite>
+
+Hybrid Framework (Combination of Keyword & Data-Driven)
+Combines Keyword-Driven + Data-Driven for more flexibility.
+Uses Excel, XML, and Property Files for dynamic test execution.
+
+DEVELOPING A HYBRID FRAMEWORK
+Core Components
+Selenium WebDriver
+TestNG/JUnit (Test Execution)
+Apache POI (Excel Handling)
+Extent Reports (Reporting)
+Log4j (Logging)
+
+
+		
