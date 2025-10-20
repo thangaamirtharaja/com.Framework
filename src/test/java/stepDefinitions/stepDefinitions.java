@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.Duration;
 
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import utils.Before_and_after_config.ConfigReader;
 import utils.Before_and_after_config.DriverManager;
 import io.cucumber.java.en.Given;
@@ -21,7 +23,9 @@ public class stepDefinitions {
         DriverManager.getDriver().manage().timeouts()
                 .implicitlyWait(Duration.ofSeconds(Integer.parseInt(ConfigReader.get("implicitWait"))));
         waitforpageload.waitforpageload(DriverManager.getDriver(), Integer.parseInt(ConfigReader.get("Wait")));
+        DriverManager.getDriver().manage().window().maximize();
         Thread.sleep(5000);
+//        DriverManager.getDriver().findElement(By.id("username")).sendKeys("Hello");
     }
 
     @Given("I navigate to OrangeHRM website2")
@@ -50,7 +54,6 @@ public class stepDefinitions {
     @Given("I navigate to OrangeHRM website5")
     public void i_navigate_to_orange_hrm_website5() throws InterruptedException, IOException {
         System.out.println("1");
-
     }
 
     @Given("I navigate to OrangeHRM website6")

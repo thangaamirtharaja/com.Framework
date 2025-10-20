@@ -106,7 +106,7 @@ TestNG:
 5.What is the use of @Listener annotation in TestNG?
 6.What are the exceptions in selenium?
 7.How to perform crossbrowser testing using TestNG?
-
+---------------------------------------------------------------------------
 Core Java:
 1.What are the OOPs concepts?
 2.What is Inheritance?

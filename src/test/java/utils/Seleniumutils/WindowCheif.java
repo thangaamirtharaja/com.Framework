@@ -5,11 +5,11 @@ import org.openqa.selenium.WindowType;
 
 import java.util.Set;
 
-public class WindowCeif implements IWindowCheif{
+public class WindowCheif implements IWindowCheif {
     private WebDriver driver;
     private String mainWindow;
 
-    public WindowCeif(WebDriver driver) {
+    public WindowCheif(WebDriver driver) {
         this.driver = driver;
         this.mainWindow = driver.getWindowHandle(); // store main window
     }

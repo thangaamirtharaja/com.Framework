@@ -31,7 +31,7 @@ public abstract class ElementHunter implements IElementHunter {
             return element;
         } catch (Exception ignored) {}
 
-        // 2️⃣ Then try CSS Selector
+
         try {
             element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locatorValue)));
             System.out.println(" Found element using CSS Selector: " + locatorValue);
